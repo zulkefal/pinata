@@ -1,0 +1,65 @@
+.top{
+    background-color:rgb(43, 30, 90);
+  }
+  input[type="file"] {
+    display: none;
+  }
+
+  .textArea{
+    color: white;
+  }
+  .upper{
+    padding: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 3.5em;
+  }
+
+  .choose{
+    background-color: white;
+    color: black;
+    padding: 0.5em;
+    border: 3px solid black;
+    border-radius: 0.5em;
+  }
+  .retrive{
+    padding: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 3.5em;
+  }
+  .upload{
+
+    background-color: white;
+    color: black;
+    border: 3px solid black;
+    border-radius: 0.5em;
+    font-size: 1.2em;
+    padding: 0.5em;
+  }
+  .choose:hover {
+    background-color: #a5efc1;
+  }
+
+  .upload:hover {
+    background-color: #a5efc1;
+  }
+  .display{
+    height: 63vh;
+    background: black;  }
+
+    #retrieveID {
+      color: black; 
+    }
+  
+    #uploadID {
+      color: black; 
+    }
+
+  
+
+  
