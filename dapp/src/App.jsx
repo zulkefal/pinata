@@ -26,11 +26,11 @@ function App() {
           window.location.reload();
         });
         await provider.send("eth_requestAccounts", []);
-        const signer = provider.getSigner();
+        const signer = await provider.getSigner();
         const address = await (await signer).getAddress();
         //console.log(address)
         setAccount(address);
-        let contractAddress = "0x9E9FE165d8550Fc94782219715A5F6fFc582912b";
+        let contractAddress = "0x425a02f6FC90B89d56F3f7f57b019F9CE25147F8";
 
         const contract = new ethers.Contract(
           contractAddress,

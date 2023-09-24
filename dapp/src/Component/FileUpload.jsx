@@ -8,6 +8,7 @@ const FileUpload = ({ contract, account}) => {
   const [imgHash,setImgHash] = useState();
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (file) {
       try {
         const formData = new FormData();
@@ -17,15 +18,13 @@ const FileUpload = ({ contract, account}) => {
           url: "https://api.pinata.cloud/pinning/pinFileToIPFS ",
           data: formData,
           headers: {
-            pinata_api_key: `752c46b6838cdee82175`,
-            pinata_secret_api_key: `660aad7e11759c5d2d7c9e163321efcd9f9055bfa5d5922dcd53410dd7295060`,
+            pinata_api_key: `d14cd382cead77eb04e4`,
+            pinata_secret_api_key: `b9ecc20ce1f4cf7d0c00e0d37b7661fc506a7839d2a19f26e49ecd17cff99f4f`,
             "Content-Type": "multipart/form-data",
           },
         });
-
-        const up = document.querySelector("#uploadID").value;
-        contract.storeFileHash(up,resFile.data.IpfsHash);
-
+        const idd = document.querySelector("#uploadID").value;
+        contract.storeFileHash(idd,resFile.data.IpfsHash)
         alert("Successfully Image Uploaded");
         setFileName("No image selected");
         setFile(null);
@@ -34,20 +33,21 @@ const FileUpload = ({ contract, account}) => {
       }
     }
   };
-
  
-  const datafromBC = async () => {
+  const datafromBC = async (e) => {
+   
     try {
+
       const retrieve = document.querySelector("#retrieveID").value;
       const fileHash = await contract.getFileHash(retrieve);
+      console.log("i am hash" + fileHash);
       const ImgHash = `https://gateway.pinata.cloud/ipfs/${fileHash}`;
-     setImgHash(ImgHash);
-    } catch (error) {
-      console.error("I am error:", error);
+      setImgHash(ImgHash);
+    } catch (e) {
+      console.error("I am error:", e);
     }
+    
   };
-  
-
   
   const retrieveFile = (e) => {
     const data = e.target.files[0]; //files array of files object
@@ -62,6 +62,7 @@ const FileUpload = ({ contract, account}) => {
   };
   return (
     <div className="top">
+
       <form className="form" onSubmit={handleSubmit}>
           <div className="upper">
           <label htmlFor="file-upload" className="choose">
@@ -74,7 +75,7 @@ const FileUpload = ({ contract, account}) => {
             name="data"
             onChange={retrieveFile}
           />
-          <input id="#uploadID" type="text" placeholder="Enter Unique ID"/>
+          <input id="uploadID" type="text" placeholder="Enter Unique ID"/>
           <span className="textArea">Image: {fileName}</span>
           <button type="submit" className="upload" disabled={!file}>
           Upload File
@@ -82,6 +83,8 @@ const FileUpload = ({ contract, account}) => {
         </div>
     
       </form>
+
+
       <div className="retrive">
       <input id="retrieveID" type="text" placeholder="Enter Unique ID" />
         <button className="upload" onClick={datafromBC}>
@@ -89,7 +92,7 @@ const FileUpload = ({ contract, account}) => {
           </button>
       </div>
       <div className="display">
-          <h1>Hello from {imgHash}</h1>
+      <h2 className="dh2">Retrieved Data From Bio</h2>
           <img src={imgHash} alt="" />
       </div>
     </div>
