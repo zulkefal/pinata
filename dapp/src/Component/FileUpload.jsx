@@ -18,8 +18,8 @@ const FileUpload = ({ contract, account}) => {
           url: "https://api.pinata.cloud/pinning/pinFileToIPFS ",
           data: formData,
           headers: {
-            pinata_api_key: `d14cd382cead77eb04e4`,
-            pinata_secret_api_key: `b9ecc20ce1f4cf7d0c00e0d37b7661fc506a7839d2a19f26e49ecd17cff99f4f`,
+            pinata_api_key: `add key here`,
+            pinata_secret_api_key: `add key here`,
             "Content-Type": "multipart/form-data",
           },
         });
@@ -92,7 +92,8 @@ const FileUpload = ({ contract, account}) => {
           </button>
       </div>
       <div className="display">
-      <h2 className="dh2">Retrieved Data From Bio</h2>
+      <h2 className="dh2">Retrieved Data From Blockchain</h2>
+      <h3>{imgHash}</h3>
           <img src={imgHash} alt="" />
       </div>
     </div>
