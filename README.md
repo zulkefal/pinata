@@ -1,13 +1,6 @@
-# Sample Hardhat Project
+#this is simplest app to upload file on IPFS and then store it hash on smartcontract with id. 
+#use the id to get the hash back from smartcontract and add it to ipfs url to fetch the file from ipfs
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
 
-Try running some of the following tasks:
+https://github.com/zulkefal/pinata/assets/93879863/4c6baf9c-8d9d-49c2-8f5b-74da5badd272
 
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
-```
